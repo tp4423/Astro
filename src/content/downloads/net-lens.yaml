@@ -1,0 +1,11 @@
+{
+  "title": "NetLens",
+  "description": "网络流量分析工具，实时可视化与异常检测",
+  "version": "3.1.0",
+  "category": "developer-tools",
+  "platforms": ["Linux", "macOS"],
+  "fileSize": "15.8 MB",
+  "downloadUrl": "#",
+  "updated": "2026-06-05",
+  "changelog": "新增 HTTP/3 解析支持"
+}
