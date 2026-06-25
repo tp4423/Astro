@@ -1,0 +1,11 @@
+{
+  "title": "VaultPress",
+  "description": "零知识密码管理器，端到端加密，支持自托管",
+  "version": "4.2.3",
+  "category": "security",
+  "platforms": ["macOS", "Linux", "Windows", "iOS", "Android"],
+  "fileSize": "32.1 MB",
+  "downloadUrl": "#",
+  "updated": "2026-06-15",
+  "changelog": "紧急修复 TOTP 同步问题"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Waveform",
+  "description": "轻量级音频工作站，专注采样与切片，支持 VST3",
+  "version": "0.9.7-beta",
+  "category": "media",
+  "platforms": ["macOS", "Linux"],
+  "fileSize": "18.4 MB",
+  "downloadUrl": "#",
+  "updated": "2026-06-10",
+  "changelog": "Beta 版本，新增时间拉伸算法"
+}

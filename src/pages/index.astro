@@ -1,0 +1,98 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const downloads = await getCollection("downloads");
+const categories = [...new Set(downloads.map((d) => d.data.category))];
+---
+
+<Layout title="DOWNLOADS">
+  <main class="main-grid">
+    <section class="content-area">
+      <div class="download-list-header">
+        <h1 class="cursor">软件下载</h1>
+        <span class="download-count">{downloads.length} packages available</span>
+      </div>
+
+      <div class="tag-filter">
+        <button class="active" data-category="all">ALL</button>
+        {
+          categories.map((cat) => (
+            <button data-category={cat}>{cat.toUpperCase()}</button>
+          ))
+        }
+      </div>
+
+      <table class="download-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Platform</th>
+            <th>Version</th>
+            <th class="size">Size</th>
+            <th class="date">Updated</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            downloads.map((dl) => (
+              <tr>
+                <td>
+                  <div class="name">{dl.data.title}</div>
+                  <div style="color: var(--text-muted); font-size: 0.7rem; margin-top: 0.15rem;">
+                    {dl.data.description}
+                  </div>
+                </td>
+                <td class="platform">
+                  {dl.data.platforms?.map((p: string) => <span>{p}</span>)}
+                </td>
+                <td class="version">{dl.data.version}</td>
+                <td class="size">{dl.data.fileSize}</td>
+                <td class="date">{dl.data.updated?.toLocaleDateString?.() || dl.data.updated}</td>
+                <td>
+                  <a href={dl.data.downloadUrl} class="btn-download">
+                    DOWNLOAD
+                  </a>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </section>
+
+    <aside class="sidebar">
+      <div class="stat-card">
+        <div class="label">Total Packages</div>
+        <div class="value">{downloads.length}</div>
+      </div>
+      <div class="stat-card" style="border-left-color: var(--accent-orange);">
+        <div class="label">Latest Release</div>
+        <div class="value" style="color: var(--accent-orange); font-size: 1rem;">
+          {downloads[0]?.data.version || "—"}
+        </div>
+        <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">
+          {downloads[0]?.data.title || "—"}
+        </div>
+      </div>
+      <div style="margin-top: 2rem;">
+        <h3 style="font-size: 0.7rem; letter-spacing: 0.2em; color: var(--text-muted); margin-bottom: 1rem;">
+          RECENT UPDATES
+        </h3>
+        {
+          downloads.slice(0, 5).map((dl) => (
+            <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color); font-size: 0.75rem;">
+              <div style="color: var(--text-primary);">{dl.data.title}</div>
+              <div style="color: var(--accent-green); font-size: 0.65rem;">v{dl.data.version}</div>
+            </div>
+          ))
+        }
+      </div>
+    </aside>
+  </main>
+</Layout>
+
+<style>
+  @import "../styles/download-station.css";
+</style>

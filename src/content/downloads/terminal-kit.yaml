@@ -1,0 +1,11 @@
+{
+  "title": "TerminalKit",
+  "description": "下一代终端模拟器，支持 GPU 加速渲染与多标签页管理",
+  "version": "2.4.1",
+  "category": "developer-tools",
+  "platforms": ["macOS", "Linux", "Windows"],
+  "fileSize": "48.2 MB",
+  "downloadUrl": "#",
+  "updated": "2026-06-20",
+  "changelog": "修复 Wayland 下渲染异常；新增 iTerm2 迁移工具"
+}

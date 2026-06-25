@@ -1,0 +1,11 @@
+{
+  "title": "PixelSieve",
+  "description": "本地优先的 AI 图片管理工具，离线人脸识别与智能分类",
+  "version": "1.8.0",
+  "category": "media",
+  "platforms": ["macOS", "Windows"],
+  "fileSize": "124.7 MB",
+  "downloadUrl": "#",
+  "updated": "2026-06-18",
+  "changelog": "新增 HEIC 格式支持；性能提升 40%"
+}
